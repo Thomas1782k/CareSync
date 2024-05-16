@@ -35,4 +35,4 @@ This project is a Patient Health Monitoring Portal developed using Java, Spring 
 
 ## Acknowledgments
 
-- Special thanks to my mentor## Karthikeyan
+- Special thanks to my mentor Karthikeyan
