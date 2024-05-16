@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,15 +10,15 @@
     <link href="heroes.css" rel="stylesheet">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/heroes/">
     <link href="/files/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link th:href="@{/style.css}" rel="stylesheet" type="text/css" />
-    <style type="text/css">
-<%--<%@include--%>
-<%--file = "style.css" --%>
-<%--%>--%>
 
-<%-- <%@include
-file = "css/all.min.css"
-%> --%>
+    <style type="text/css">
+<%@include
+file = "style.css"
+%>
+
+<%-- <%@include--%>
+<%--file = "css/all.min.css"--%>
+<%--%>--%>
 
 
 </style>
@@ -69,7 +69,7 @@ file = "css/all.min.css"
           </div>
           <div class="col-md-10 mx-auto col-lg-5">
           <h4>${errmsg }</h4>
-            <form action="checka" class="p-4 p-md-5 border rounded-3 bg-light" method="post">
+            <form action="adminLoginAuthentication" class="p-4 p-md-5 border rounded-3 bg-light" method="post">
               <div class="form-floating mb-3">
                 <input type="email" class="form-control" name="userId" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">User Id</label>

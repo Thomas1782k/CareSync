@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%--    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>--%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +60,7 @@ background: linear-gradient(to left top,
 <div class="pat-det"> 
 <div >
 	
-	<form action="updatepat">
+	<form action="updateOutpatient">
 	<input type="hidden" name="pname" value="${pname }" />
 	<input type="hidden" name="pid" value="${pid }" />
 	<input type="hidden" name="doc" value="${doc }" />

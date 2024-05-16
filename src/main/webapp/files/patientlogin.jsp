@@ -75,14 +75,14 @@ overflow: hidden;
          
           <h4>${errmsg }</h4> 
           
-            <form class="p-4 p-md-5 border rounded-3 bg-light" action="checkp" method="post">
+            <form class="p-4 p-md-5 border rounded-3 bg-light" action="patientLoginAuthentication" method="post">
               <div class="form-floating mb-3">
              
                 <input type="text" class="form-control" id="floatingInput" placeholder="User Id" name="userId">
                 <label for="floatingInput">User Id</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPassword" name="Password" placeholder="Password">
+                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
                 <label for="floatingPassword">Password</label>
               </div>
               <div class="form-floating mb-3">

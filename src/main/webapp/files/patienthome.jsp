@@ -169,7 +169,7 @@ background-size: cover;
         <p class="fs-5 text-muted">Health is Wealth. Here you can check your health condition. Activities and prescriptions given to you are from most famous surgents. Kindly follow it.</p>
      <center >
     <div class="docup">
-     <form action="docup">
+     <form action="preferredDoctor">
      <input  type="hidden" name="pid" value="${pid }">
      <input  type="hidden" name="pname" value="${pname}">
 		 <label > <strong style="color:#000000; "> Preferred Doctor:</strong></label>
@@ -354,11 +354,11 @@ background-size: cover;
       </div>
 </div>
 <div >
-<center class="pre-hel"> <form action="seepre">
+<center class="pre-hel"> <form action="seeYourPrescription">
       <input type="hidden" name=pid value="${pid }">
      <h4> <input class="psub" type="submit"  value="View Prescription"></h4>
       </form> 
-      <form action="seehel">
+      <form action="seeHealthCondition">
       <input type="hidden" name=pid value="${pid }">
      <h4> <input class="psub" type="submit"  value="View Health Condition"></h4>
       </form> 

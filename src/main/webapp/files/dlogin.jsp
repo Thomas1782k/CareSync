@@ -94,7 +94,7 @@ body
                 </label>
               </div>
 			  
-              <button class="w-100 btn btn-lg btn-primary"  formaction="check" type="submit">Sign in</button>
+              <button class="w-100 btn btn-lg btn-primary"  formaction="doctorLoginAuthentication" type="submit">Sign in</button>
              
              
               <hr class="my-4">

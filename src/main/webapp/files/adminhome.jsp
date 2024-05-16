@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%--<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
-<%--    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>--%>
+    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%--<%@ taglib uri="http://xmlns.jcp.org/jsp/jstl/core" prefix="c" %>--%>
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en" >
@@ -66,7 +66,7 @@ background-size: auto;
                         </li> -->
                       </ul>
                   </div>
-                
+                F
               </nav> <br><br><br>
         </div>
        </div>
@@ -83,51 +83,6 @@ background-size: auto;
         <div class="row align-items-center g-lg-5 py-5">
           
           <div class="col-md-10 mx-auto col-lg-5">
-            
-<%--            <form class="p-2 p-md-1 row g-3 border rounded-3 bg-light">--%>
-<%--                <div class="form-floating mb-3">--%>
-<%--                   <select name="pid" id="patientavailable" class="form-select">--%>
-<%--                   <c:forEach items="${patients}" var="pat">--%>
-<%--                   <option value="${pat.getPid()}">${pat.getPid()}</option>--%>
-<%--                   </c:forEach>--%>
-<%--                     </select>                    --%>
-<%--                     <label for="floatingInput1">Patient ID</label>--%>
-<%--                  </div>--%>
-<%--              --%>
-<%--               <div class="form-floating mb-3">--%>
-<%--                <select name="pname" id="patientavailable" class="form-select">--%>
-<%--                   <c:forEach items="${patients}" var="pat">--%>
-<%--                   <option value="${pat.getFirstName() }">${pat.getFirstName() } - ${pat.getPid()} - ${pat.getDoctor()} </option>--%>
-<%--                   </c:forEach>--%>
-<%--                     </select> --%>
-<%--                <label for="floatingInput3">Patient Name</label>--%>
-<%--              </div>--%>
-<%--<div class="form-floating mb-3">--%>
-<%--                <input type="datetime-local" name="appointmentDate" class="form-control" id="floatingInput" placeholder="First Name">--%>
-<%--                <label for="floatingInput">Date</label>--%>
-<%--                </div>--%>
-<%--              <!-- --%>
-<%--<div class="form-floating mb-3">--%>
-<%--                <input type="time" class="form-control" id="floatingInput" placeholder="First Name">--%>
-<%--                <label for="floatingInput">Time</label>--%>
-<%--              </div> -->--%>
-<%--              <div class="form-floating mb-3">--%>
-<%--                <input type="text" name="symptoms" class="form-control" id="floatingInput" placeholder="First Name">--%>
-<%--                <label for="floatingInput">Symptoms</label>--%>
-<%--              </div>--%>
-<%--              <div class="form-floating mb-3">--%>
-<%--                  <select name="doctor" id="Doctorsavailable" class="form-select">--%>
-<%--                   <c:forEach items="${doctors}" var="doctor">--%>
-<%--                   <option value="${doctor.getDid() }">${doctor.getFirstName()} - ${doctor.getSpeciality() }</option>--%>
-<%--                   </c:forEach>--%>
-<%--                     </select>--%>
-<%--                <label for="floatingInput">Doctors Available</label>--%>
-<%--              </div>    --%>
-<%--   --%>
-<%--             --%>
-<%--              <button class="w-100 btn btn-lg btn-primary" formaction="appo" type="submit">Book Appointment</button>--%>
-<%--              <hr class="my-4">--%>
-<%--            </form>--%>
     <form class="p-2 p-md-1 row g-3 border rounded-3 bg-light">
         <div class="form-floating mb-3">
             <select name="pid" id="patientIdSelect" class="form-select">

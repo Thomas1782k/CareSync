@@ -1,35 +1,29 @@
-<!--<%@ page language="java" contentType="text/html; charset=UTF-8"-->
-<!--    pageEncoding="UTF-8"%>-->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta th:attr="http-equiv='Cache-Control', content='no-cache, no-store, must-revalidate'" />
-    <meta th:attr="http-equiv='Pragma', content='no-cache'" />
-    <meta th:attr="http-equiv='Expires', content='0'" />
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link th:href="@{/style.css}" rel="stylesheet" type="text/css" />
-    <link th:href="@{/css/all.min.css}" rel="stylesheet" type="text/css" />
     <title>Home</title>
     <style type="text/css">
-/*<%@include*/
-/*file = "style.css" */
-/*%>*/
+<%@include
+file = "style.css"
+%>
 
-/*<%-- <%@include*/
-/*file = "css/all.min.css" */
-/*%> --%>*/
+<%-- <%@include--%>
+<%--file = "css/all.min.css"--%>
+<%--%>--%>
 </style>
 </head>
 <body>
-<!--<% response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");-->
-<!--       response.setHeader("Pragma","no-cache");-->
-<!--       response.setHeader("Expires","0"); -->
-<!--    %>-->
+<% response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+       response.setHeader("Pragma","no-cache");
+       response.setHeader("Expires","0");
+    %>
     <div class="fholder">
         <div class="fcontent">
             <div class="ele">

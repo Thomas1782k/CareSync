@@ -114,10 +114,10 @@ background: linear-gradient(to left top,
                 <label for="floatingInput4">Phone Number</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" name="Age" placeholder="Age" pattern="[-+]?[0-9]*[.,]?[0-9]+"
+                <input type="text" class="form-control" id="floatingInput5" name="Age" placeholder="Age" pattern="[-+]?[0-9]*[.,]?[0-9]+"
 							minlength="1" maxlength="2"
 							title="Must contain atleast one or two digits" required>
-                <label for="floatingInput">Age</label>
+                <label for="floatingInput5">Age</label>
               </div>
               <div class="form-floating mb-3">
                 <select id="inputGender" name="Gender" class="form-select">
@@ -126,20 +126,20 @@ background: linear-gradient(to left top,
                     <option value="female">Female</option>
                     <option value="others">Others</option>
                   </select>
-                <label for="floatingInput">Gender</label>
+                <label for="floatingInput5">Gender</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput3" name="Qualification" placeholder="M.B.B.S / M.D/ M.S or M.Sc in Medicine">
-                <label for="floatingInput3">Qualification</label>
+                <input type="text" class="form-control" id="floatingInput6" name="Qualification" placeholder="M.B.B.S / M.D/ M.S or M.Sc in Medicine">
+                <label for="floatingInput6">Qualification</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput3" name="Speciality" placeholder="Orthopedics/Pediatrics/General Surgery/Ophthalmology..">
-                <label for="floatingInput3">Speciality</label>
+                <input type="text" class="form-control" id="floatingInput7" name="Speciality" placeholder="Orthopedics/Pediatrics/General Surgery/Ophthalmology..">
+                <label for="floatingInput7">Speciality</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput3" name="userId" placeholder="Orthopedics/Pediatrics/General Surgery/Ophthalmology.." pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,15}"
+                <input type="text" class="form-control" id="floatingInput8" name="userId" placeholder="Orthopedics/Pediatrics/General Surgery/Ophthalmology.." pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,15}"
 							title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 length" required>
-              <label for="floatingInput3">UserId</label>
+              <label for="floatingInput8">UserId</label>
               </div>
               <div class="form-floating mb-3">
                 <input type="password" class="form-control" id="floatingPassword" name="Password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}"
@@ -147,13 +147,13 @@ background: linear-gradient(to left top,
 				<label for="floatingPassword">Password</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput3" name="address" placeholder="M.B.B.S / M.D/ M.S or M.Sc in Medicine">
-                <label for="floatingInput3">Address</label>
+                <input type="text" class="form-control" id="floatingInput9" name="address" placeholder="M.B.B.S / M.D/ M.S or M.Sc in Medicine">
+                <label for="floatingInput9">Address</label>
               </div>
               
               <div class="form-floating col-md-4">
-                <input type="text" class="form-control" id="floatingInput1" name="city" placeholder="First Name">
-                <label for="floatingInput1">City</label>
+                <input type="text" class="form-control" id="floatingInput10" name="city" placeholder="First Name">
+                <label for="floatingInput10">City</label>
               </div>
               <div class="form-floating col-md-4">
                 <select id="inputState" name="state" class="form-select">
@@ -180,7 +180,7 @@ background: linear-gradient(to left top,
                 </label>
               </div>
 			  
-			  <button class="w-100 btn btn-lg btn-primary"  formaction="dreg" type="submit">Sign up</button>
+			  <button class="w-100 btn btn-lg btn-primary"  formaction="doctorRegistration" type="submit">Sign up</button>
 
               <hr class="my-4">
               <small class="text-muted text-center">By clicking Sign up, you agree to the terms of use.</small>

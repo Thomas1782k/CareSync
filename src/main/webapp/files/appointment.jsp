@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +65,6 @@ background: linear-gradient(to left top,
   <thead>
   
     <tr>
-      
       <th scope="col">Patient ID</th>
       <th scope="col">Patient Name</th>
       <th scope="col">Disease</th>
@@ -80,7 +80,7 @@ background: linear-gradient(to left top,
  <td>${app.getSymptoms() }</td>
  <td>${app.getDate() }</td>
  <td> 
-	 <form action="pp">
+	 <form action="outPatientGetDetails">
 	 <input type="hidden" name="pid" value="${app.getPid() }">
 	 <input type="hidden" name="pname" value="${app.getPname() }">
 	 <input type="hidden" name="symp" value="${app.getSymptoms() }">

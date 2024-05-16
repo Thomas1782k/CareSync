@@ -181,7 +181,7 @@ background: linear-gradient(to left top,
 							I Agree
 						</label>
 					</div>
-					<input type="submit" value="Submit" class="w-100 btn btn-lg btn-primary" formaction="preg">
+					<input type="submit" value="Submit" class="w-100 btn btn-lg btn-primary" formaction="patientRegistration">
 					<hr class="my-4">
 					<small class="text-muted text-center">By clicking Sign up,
 						you agree to the terms of use.</small>

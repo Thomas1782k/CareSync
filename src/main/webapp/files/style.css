@@ -3,13 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Montserrat&family=Ubuntu:wght@700&display=swap');
 body
 {
-	background-image: url("/files/bimage.png");
-	 /* background: linear-gradient(to left top,
-    rgba(52, 179, 241,0.8),
-    rgba(255, 240, 250,0.5)
+	/*background-image: url("/files/bimage.png");*/
+	/*  background: linear-gradient(to left top,*/
+    /*rgba(52, 179, 241,0.8),*/
+	/*  rgba(241, 132, 197, 0.5)*/
     
-    ); 
-    min-height: 100vh; */
+    /*);*/
+
+	background: linear-gradient(to left top,
+	#3AB0FF,
+	#FFFFFF
+	);
+	min-height: 100vh;
      background-repeat: no-repeat;
     background-size: 1600px 800px;
     font-family: 'Montserrat', sans-serif;
@@ -38,7 +43,6 @@ h1,h2, h3, h4
     background: linear-gradient(to left top,
     #3AB0FF,
     #FFFFFF
-    
     ); 
     min-height: 100vh; 
 	background-size: 100rem 850px;
