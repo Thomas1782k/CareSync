@@ -26,14 +26,13 @@ This project is a Patient Health Monitoring Portal developed using Java, Spring 
 
 1. **Prerequisites**: Ensure you have Java, Maven, MySQL, and AWS account set up.
 2. **Clone the Repository**: `git clone <repository-url>`
-3. **Set Up MySQL Database**: Execute the SQL scripts provided in the `database-scripts` directory.
 4. **Configure AWS**: Set up AWS credentials and deploy the application.
 5. **Build and Run**: Use Maven to build and run the application locally.
 
 ## Contributors
 
-- [Thomas]([https://github.com/yourusername](https://github.com/Thomas1782k))
+- [Thomas]([https://github.com/Thomas1782k])
 
 ## Acknowledgments
 
-- Special thanks to my mentor [Karthikeyan]
+- Special thanks to my mentor## Karthikeyan
