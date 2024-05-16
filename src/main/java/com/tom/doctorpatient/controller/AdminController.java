@@ -20,8 +20,8 @@ import java.util.List;
 @Controller
 public class AdminController {
 
-	private FrontService fs;
-	private AdminServiceImpl adminService;
+	private final FrontService fs;
+	private final AdminServiceImpl adminService;
 
 	public AdminController( FrontService fs, AdminServiceImpl adminService) {
 		this.fs = fs;

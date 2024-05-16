@@ -22,7 +22,7 @@ import java.time.format.DateTimeFormatter;
 public class DoctorController {
 	/*************Docter************/
 
-	private DoctorServiceImpl doctorService;
+	private final DoctorServiceImpl doctorService;
 
 	public DoctorController(DoctorServiceImpl doctorService){
 		this.doctorService=doctorService;

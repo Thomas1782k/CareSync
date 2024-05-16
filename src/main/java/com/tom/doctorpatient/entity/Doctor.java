@@ -1,10 +1,17 @@
 package com.tom.doctorpatient.entity;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Data
+@Getter
+@Setter
 @Entity
 public class Doctor {
 	
@@ -117,34 +124,5 @@ public class Doctor {
 				+ ", speciality=" + Speciality + ", address=" + address + ", city=" + city + ", state=" + state
 				+ ", EmailAddress=" + EmailAddress + ", userId=" + userId + ", Password=" + Password + "]";
 	}
-	
-	
-//	@RequestMapping("/getstudents")
-//	public ModelAndView getStudentView()
-//	{
-//		ModelAndView mv = new ModelAndView();
-//		List<Student> students = repo.findAll();
-//		mv.setViewName("studentdetails.jsp");
-//		mv.addObject("students", students);
-//		
-//		return mv;
-//	}
-//<table>
-//<thead>
-//<th>sid</th> <th>Sname</th> <th>DOB</th>
-//</thead>
-//<tbody>
-// <c:forEach items="${students}" var="student">
-// <tr>
-// <td>${student.sid }</td>
-// <td>${student.sname }</td>
-// <td>${student.dob }</td>
-//</tr>
-// </c:forEach>
-//
-//</tbody>
-//</table>
-	
-	
 
 }

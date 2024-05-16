@@ -3,7 +3,6 @@ package com.tom.doctorpatient.service;
 import com.tom.doctorpatient.entity.Patient;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 public interface PatientServiceInterface {

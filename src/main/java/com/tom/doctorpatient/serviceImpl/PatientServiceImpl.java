@@ -21,10 +21,10 @@ import java.util.List;
 @Service
 public class PatientServiceImpl implements PatientServiceInterface {
 
-    private PatientRepo patientRepo;
-    private DoctorRepo doctorRepo;
-    private PatientRecordRepo patientRecordRepo;
-    private UpdateRepo updateRepo;
+    private final PatientRepo patientRepo;
+    private final DoctorRepo doctorRepo;
+    private final PatientRecordRepo patientRecordRepo;
+    private final UpdateRepo updateRepo;
 
     public PatientServiceImpl(PatientRepo patientRepo, DoctorRepo doctorRepo,
                               PatientRecordRepo patientRecordRepo, UpdateRepo updateRepo) {

@@ -1,10 +1,16 @@
 package com.tom.doctorpatient.entity;
 
 
-import javax.persistence.Id;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.Id;
 import javax.persistence.Entity;
 
+@Data
+@Getter
+@Setter
 @Entity
 public class Admin {
 
@@ -12,21 +18,4 @@ public class Admin {
 	private String userId;
 	private String password;
 	private String name;
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	@Override
-	public String toString() {
-		return "Admin [userId=" + userId + ", password=" + password + "]";
-	}
-	
 }
