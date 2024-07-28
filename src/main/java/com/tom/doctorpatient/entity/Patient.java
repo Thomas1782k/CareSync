@@ -8,12 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Data
 @Getter
 @Setter
 @Entity
-public class Patient {
+public class Patient implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

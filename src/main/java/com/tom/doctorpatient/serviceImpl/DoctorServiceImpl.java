@@ -1,14 +1,19 @@
 package com.tom.doctorpatient.serviceImpl;
 
-import com.tom.doctorpatient.entity.Appointment;
-import com.tom.doctorpatient.entity.Doctor;
-import com.tom.doctorpatient.entity.PatientRecord;
-import com.tom.doctorpatient.entity.Updateapp;
+import com.tom.doctorpatient.dto.DoctorDTO;
+import com.tom.doctorpatient.dto.PatientDTO;
+import com.tom.doctorpatient.entity.*;
 import com.tom.doctorpatient.repository.AppointmentRepo;
 import com.tom.doctorpatient.repository.DoctorRepo;
 import com.tom.doctorpatient.repository.PatientRecordRepo;
 import com.tom.doctorpatient.repository.UpdateRepo;
 import com.tom.doctorpatient.service.DoctorServiceInterface;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,6 +22,7 @@ import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -26,13 +32,15 @@ public class DoctorServiceImpl implements DoctorServiceInterface {
     private final AppointmentRepo appointmentRepo;
     private final UpdateRepo updateRepo;
     private final PatientRecordRepo patientRepo;
+    private final DoctorRepo doctorRepo;
 
     public DoctorServiceImpl(DoctorRepo doctorReop, AppointmentRepo appointmentRepo,
-                             UpdateRepo updateRepo, PatientRecordRepo patientRepo) {
+                             UpdateRepo updateRepo, PatientRecordRepo patientRepo, DoctorRepo doctorRepo) {
         this.doctorReop = doctorReop;
         this.appointmentRepo = appointmentRepo;
         this.updateRepo = updateRepo;
         this.patientRepo = patientRepo;
+        this.doctorRepo = doctorRepo;
     }
 
     @Override
@@ -61,34 +69,29 @@ public class DoctorServiceImpl implements DoctorServiceInterface {
         }
     }
 
+    @CachePut(key = "#doc.userId", value = "doctors")
+    public Doctor registerDoctor(Doctor doc) {
+        Doctor existingDoctor = doctorRepo.findByUserId(doc.getUserId());
+        if (existingDoctor == null || !existingDoctor.getUserId().equals(doc.getUserId())) {
+            doctorRepo.save(doc);
+            return doc;
+        } else {
+            return existingDoctor;
+        }
+    }
+
     @Override
     public ModelAndView doctorRegistration(Doctor doc, String userId) {
         ModelAndView mv = new ModelAndView();
-        Doctor d = doctorReop.findByUserId(userId);
-        if (d == null) {
-            doctorReop.save(doc);
-            mv.setViewName("dlogin");
-            mv.addObject("errormsg", "Registered Sucessfuly");
-        } else if (!(d.getUserId().equals(doc.getUserId()))) {
-            doctorReop.save(doc);
-            mv.setViewName("dlogin");
-            mv.addObject("errormsg", "Registered Sucessfuly");
-        } else {
-            mv.addObject("errormsg", "User Id already selected");
-            mv.setViewName("dreg1");
-        }
         return mv;
     }
 
     @Override
-    public ModelAndView appointmentDetails(HttpSession session, String doctorName) {
+    @Cacheable(value="appointments")
+    public List<Appointment> appointmentDetails(HttpSession session, String doctorName) {
         // System.out.println("Hi"+session.getAttribute("did"));
         List<Appointment> appo =  appointmentRepo.findByDoctor(session.getAttribute("did").toString());
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("dname", session);
-        mv.addObject("docApp", appo);
-        mv.setViewName("appointment");
-        return mv;
+        return appo;
     }
 
     @Override
@@ -253,6 +256,47 @@ public class DoctorServiceImpl implements DoctorServiceInterface {
         mv.addObject("dname", dname);
         mv.setViewName("updatepatientrecord");
         return mv;
+    }
+
+    public DoctorDTO createDTO(Doctor doctor) {
+        DoctorDTO dto = new DoctorDTO();
+        dto.setDid(doctor.getDid());
+        dto.setFirstName(doctor.getFirstName());
+        dto.setLastName(doctor.getLastName());
+        dto.setEmailAddress(doctor.getEmailAddress());
+        dto.setAge(doctor.getAge());
+        dto.setGender(doctor.getGender());
+        dto.setCity(doctor.getCity());
+        dto.setContactNumber(doctor.getContactNumber());
+        dto.setState(doctor.getState());
+//        PatientRecord patientRecord = patientRecordRepo.findByPid(patient.getPid());
+//        dto.setPatientRecord(patientRecord);
+        return dto;
+    }
+
+    @Override
+    public Page<DoctorDTO> findAll(String query, int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<Doctor> doctorPage = doctorRepo.findAll(pageable);
+
+        List<DoctorDTO> dtos = doctorPage.stream()
+                .map(this::createDTO)
+                .collect(Collectors.toList());
+        System.out.println(dtos.size());
+        return new PageImpl<>(dtos, pageable, doctorPage.getTotalElements());
+    }
+
+
+    @Override
+    public Page<DoctorDTO> searchByDoctor(String query, int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<Doctor> doctorPage = doctorRepo.searchByDoctor(query,pageable);
+
+        List<DoctorDTO> dtos = doctorPage.stream()
+                .map(this::createDTO)
+                .collect(Collectors.toList());
+        System.out.println(dtos.size());
+        return new PageImpl<>(dtos, pageable, doctorPage.getTotalElements());
     }
 
 

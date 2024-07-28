@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.tom.doctorpatient.serviceImpl.DoctorServiceImpl;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 
 import com.tom.doctorpatient.repository.*;
@@ -35,7 +37,19 @@ public class DoctorController {
 
 	@RequestMapping("/doctorRegistration")
 	public ModelAndView doctorRegistration(Doctor doc, String userId) {
-		return doctorService.doctorRegistration(doc, userId);
+		//return doctorService.doctorRegistration(doc, userId);
+		Doctor registeredDoctor = doctorService.registerDoctor(doc);
+		ModelAndView mv = new ModelAndView();
+
+		if (registeredDoctor != null && registeredDoctor.equals(doc)) {
+			mv.setViewName("dlogin");
+			mv.addObject("errormsg", "Registered Successfully");
+		} else {
+			mv.setViewName("dreg1");
+			mv.addObject("errormsg", "User Id already selected");
+		}
+
+		return mv;
 	}
 
 	@RequestMapping("/dhome")
@@ -47,7 +61,12 @@ public class DoctorController {
 
 	@RequestMapping("/appointment")
 	public ModelAndView appointmentDetails(HttpSession ses, String doctorName) {
-		return doctorService.appointmentDetails(ses, doctorName);
+		List<Appointment> appo= doctorService.appointmentDetails(ses, doctorName);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("dname", ses);
+		mv.addObject("docApp", appo);
+		mv.setViewName("appointment");
+		return mv;
 	}
 
 	@RequestMapping("/updaterec")

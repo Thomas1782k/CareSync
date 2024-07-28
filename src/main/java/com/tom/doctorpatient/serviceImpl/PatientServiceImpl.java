@@ -1,22 +1,26 @@
 package com.tom.doctorpatient.serviceImpl;
 
+import com.tom.doctorpatient.dto.PatientDTO;
 import com.tom.doctorpatient.entity.Doctor;
 import com.tom.doctorpatient.entity.Patient;
 import com.tom.doctorpatient.entity.PatientRecord;
 import com.tom.doctorpatient.entity.Updateapp;
-import com.tom.doctorpatient.repository.DoctorRepo;
-import com.tom.doctorpatient.repository.PatientRecordRepo;
-import com.tom.doctorpatient.repository.PatientRepo;
-import com.tom.doctorpatient.repository.UpdateRepo;
+import com.tom.doctorpatient.repository.*;
 import com.tom.doctorpatient.service.PatientServiceInterface;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PatientServiceImpl implements PatientServiceInterface {
@@ -25,6 +29,7 @@ public class PatientServiceImpl implements PatientServiceInterface {
     private final DoctorRepo doctorRepo;
     private final PatientRecordRepo patientRecordRepo;
     private final UpdateRepo updateRepo;
+    //private final PatientDTORepo patientDTORepo;
 
     public PatientServiceImpl(PatientRepo patientRepo, DoctorRepo doctorRepo,
                               PatientRecordRepo patientRecordRepo, UpdateRepo updateRepo) {
@@ -32,6 +37,7 @@ public class PatientServiceImpl implements PatientServiceInterface {
         this.doctorRepo = doctorRepo;
         this.patientRecordRepo = patientRecordRepo;
         this.updateRepo = updateRepo;
+        //this.patientDTORepo = patientDTORepo;
     }
 
     @Override
@@ -519,5 +525,46 @@ public class PatientServiceImpl implements PatientServiceInterface {
             session.setAttribute("errmsg", "Invalid User ID!");
             return mv;
         }
+    }
+
+    public PatientDTO createDTO(Patient patient) {
+        PatientDTO dto = new PatientDTO();
+        dto.setPid(patient.getPid());
+        dto.setFirstName(patient.getFirstName());
+        dto.setLastName(patient.getLastName());
+        dto.setEmailAddress(patient.getEmailAddress());
+        dto.setAge(patient.getAge());
+        dto.setGender(patient.getGender());
+        dto.setCity(patient.getCity());
+        dto.setContactNumber(patient.getContactNumber());
+        dto.setState(patient.getState());
+        PatientRecord patientRecord = patientRecordRepo.findByPid(patient.getPid());
+        dto.setPatientRecord(patientRecord);
+        return dto;
+    }
+
+    @Override
+    public Page<PatientDTO> findAll(String query, int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<Patient> patientPage = patientRepo.findAll(pageable);
+
+        List<PatientDTO> dtos = patientPage.stream()
+                .map(this::createDTO)
+                .collect(Collectors.toList());
+        System.out.println(dtos.size());
+        return new PageImpl<>(dtos, pageable, patientPage.getTotalElements());
+    }
+
+
+    @Override
+    public Page<PatientDTO> searchByPatient(String query, int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<Patient> patientPage = patientRepo.searchByPatient(query,pageable);
+
+        List<PatientDTO> dtos = patientPage.stream()
+                .map(this::createDTO)
+                .collect(Collectors.toList());
+        System.out.println(dtos.size());
+        return new PageImpl<>(dtos, pageable, patientPage.getTotalElements());
     }
 }

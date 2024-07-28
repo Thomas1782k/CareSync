@@ -66,7 +66,7 @@ background-size: auto;
                         </li> -->
                       </ul>
                   </div>
-                F
+
               </nav> <br><br><br>
         </div>
        </div>

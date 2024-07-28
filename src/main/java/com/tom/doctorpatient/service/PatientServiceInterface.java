@@ -1,7 +1,9 @@
 package com.tom.doctorpatient.service;
 
+import com.tom.doctorpatient.dto.PatientDTO;
 import com.tom.doctorpatient.entity.Patient;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.data.domain.Page;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,4 +33,9 @@ public interface PatientServiceInterface {
     public ModelAndView changePass(String userId, String Password, String newPassword, HttpSession session, Model model);
     public ModelAndView forgotPass1(String userId, String ContactNumber, String EmailAddress, HttpSession session, Model model);
     public ModelAndView dchangePass(String userId, String Password, String newPassword, HttpSession session, Model model);
+
+     /*************Paging*********/
+    Page<PatientDTO> findAll(String query, int pageNo, int pageSize);
+
+    Page<PatientDTO> searchByPatient(String query, int pageNo, int pageSize);
 }

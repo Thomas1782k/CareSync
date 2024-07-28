@@ -72,9 +72,9 @@ public class AdminServiceImpl implements AdminServiceInterface {
         Appointment ap = apr.findByPid(pid);
         Appointment dcr = apr.findByAppointmentDate(appointmentDate);
 
-        if (!(dcr == null)) {
+        if (dcr != null) {
             if (!(dcr.getAppointmentDate().equals(appointmentDate) && dcr.getDoctor().equals(doctor))) {
-                if (!(ap == null)) {
+                if (ap != null) {
                     ap.setAppointmentDate(appointmentDate);
                     ap.setSymptoms(symptoms);
                     ap.setDoctor(doctor);
@@ -89,7 +89,7 @@ public class AdminServiceImpl implements AdminServiceInterface {
                 mv.addObject("msg", "Change the time/date");
             }
         } else {
-            if (!(ap == null)) {
+            if (ap != null) {
                 ap.setAppointmentDate(appointmentDate);
                 ap.setSymptoms(symptoms);
                 ap.setDoctor(doctor);
